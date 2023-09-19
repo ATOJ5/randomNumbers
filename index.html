@@ -3,13 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Numbers</title>
+    <title>Guess Number Game</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1></h1>
+    <div id="header">
+        <h1>Guess Number Game</h1>
+        <h3>Rules : You just have to introduce a number between 0 and 50. You only have 5 attemps to guess the number</h3>
+    </div>    
+    
+    <div id="game">
+        <form id="form" action="">
+            <label for="inputText">Set your number:</label>
+            <input id="inputTxt" type="text" placeholder="Enter your number">
+            <input id="inputSubmit" type="submit" value="Try!">
+        </form>
+        <div id="replacement">
+            <h2>Thanks for Playing</h2>
+        </div>
+    </div>
 
-    <script src="script.js"></script>
+    <div id="history">
+
+        <h3>Last Number chosen</h3>
+        <div id="numChosen">
+            <h4 id="writeNumberChosen"></h4>
+        </div>
+        
+
+    </div>
+
+
+
+    <script src="js/randomNumber.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
