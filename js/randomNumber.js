@@ -7,7 +7,7 @@ class randomNumber {
         this.play = true;
     }
 
-    changeValue(){
+    randomizeNumber(){
         this.num = Math.floor(Math.random() * 51)
     }
 
@@ -26,7 +26,7 @@ class randomNumber {
     }
 
     reset(){
-        this.changeValue();
+        this.randomizeNumber();
         this.currentTry = 0;
     }
 
