@@ -149,6 +149,7 @@ body {
 
 #messageBox {
     margin-top: 1rem;
+
 }
 
 #inputNumber {
@@ -196,4 +197,10 @@ body {
 		animation-timing-function: ease-out;
 		transform: scale(1);
     }
+}
+
+#tryLeft{
+
+    margin-left: 5rem;
+
 }

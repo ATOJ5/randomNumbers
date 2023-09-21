@@ -28,10 +28,10 @@ submit.addEventListener('click', function () {
 
 submit.addEventListener('click', () => {
 
-    submit.classList.add("myAnim");
+    submit.classList.add("azura");
     setTimeout(() => {
-        submit.classList.remove("myAnim");
-    }, 500);
+        submit.classList.remove("azura");
+    }, 250);
     
 });
 
