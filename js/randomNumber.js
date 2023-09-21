@@ -1,3 +1,8 @@
+const WIN = "You have won. Congratulations";
+const LOSE = "You wasted all your tries. Good luck in your next game";
+const HIGH = "Your number is too high.";
+const LOW = "Your number is too low.";
+
 class randomNumber {
 
     constructor(){
@@ -5,6 +10,7 @@ class randomNumber {
         this.maxTries = 5;
         this.currentTry = 0;
         this.play = true;
+        this.message = "";
     }
 
     randomizeNumber(){
@@ -14,31 +20,28 @@ class randomNumber {
     checkGuess(userGuess) {
         this.currentTry++;
 
-        if (this.num === userGuess) {
-            return "win";
-        } else if (this.currentTry >= this.maxTries) {
-            return "lose";
-        } else if (userGuess > this.num) {
-            return "high";
-        } else {
-            return "low";
+    switch (true) {
+        case this.num == userGuess:
+            this.play = false;
+            this.message = WIN;
+            break;
+        case this.currentTry >= this.maxTries:
+            this.play = false;
+            this.message = LOSE;
+            break;
+        case userGuess > this.num:
+            this.message = HIGH;
+            break;
+        default:
+            this.message = LOW;
         }
-    }
-
-    reset(){
-        this.randomizeNumber();
-        this.currentTry = 0;
     }
 
     playAgain(){
-        const playAgainConf = confirm("Do you want to play again?");
-        if (playAgainConf) {
-            number.reset();
-            
-        } else {
-            window.alert("Thanks for playing. Goodbye!");
-            this.play = false;
-        }
+        this.randomizeNumber();
+        this.currentTry = 0;
+        this.play = true;
     }
+
 
 }

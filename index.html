@@ -7,34 +7,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <div id="header">
-        <h1>Guess Number Game</h1>
-        <h3>Rules : You just have to introduce a number between 0 and 50. You only have 5 attemps to guess the number</h3>
-    </div>    
-    
-    <div id="game">
-        
-        <label for="inputText">Set your number:</label>
-        <input id="inputNumber" type="number" placeholder="Enter your number">
-        <input id="inputSubmit" type="submit" value="Try!">
-        
-        <div id="replacement">
-            <h2>Thanks for Playing</h2>
+    <div id="body">
+        <div id="game">
+            
+            <h1 id="title">Guess Number Game</h1>
+            <div id="rulesNumber">
+                <div id="rulesLeft">
+                    <h2 class="rulesh2"> RULES </h2>
+                    <h3 class="rules">- Introduce a number between 0 and 50. </h3>
+                    <h3 class="rules">- You only have 5 attemps to guess the number</h3>
+                </div>
+                <div id="controlPanel">
+                    <button class="buttons" id="startNewGame" type="submit">Start New Game</button>
+                </div>
+                <div id="rulesRight">
+                    <h3 id="setNumber">Set your number:</h3>
+                    <input class="buttons" id="inputNumber" type="number" placeholder="">
+                    <button id="submit" class="buttons azura" type="submit">Try!</button>
+                </div>
+            </div>
+            <div id="messageBox">
+                <h2 id="message"></h2>
+            </div>
         </div>
     </div>
-
-    <div id="history">
-
-        <h3>Last Number chosen</h3>
-        <div id="numChosen">
-            <h4 id="writeNumberChosen"></h4>
-        </div>
-        
-
-    </div>
-
-
 
     <script src="js/randomNumber.js"></script>
     <script src="js/script.js"></script>

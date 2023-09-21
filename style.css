@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@500&display=swap');
 
 *{
 
@@ -10,73 +10,122 @@
 body {
 
     background-color: #e3e3e3;
-
-}
-
-#header {
+    background-image: url('background.jpg');
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    text-align: center;
-    background-color: #cacac9;
-    padding: 1rem;
-    margin: 1rem;
+    min-height: 100vh;
     
-
-}
-
-h1{
-
-    color: #111; 
-    font-family: 'Helvetica Neue', sans-serif; 
-    font-size: 8rem; 
-    font-weight: bold; 
-    letter-spacing: -1px; 
-    line-height: 1; 
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-h3{
-
-    color: #111; 
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2rem; 
-    font-weight: 300; 
-    line-height: 30px; 
-    margin: 0 0 25px; 
-    text-align: center;
-
 }
 
 #game{
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     text-align: center;
-    margin: auto;
-    background-color: #cacac9;
-    padding: 1rem;
+    background-color: white;
+    padding: 3rem;
+    border: white solid 2rem;
+    box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 0.2rem;
+    margin: 4.5rem;
+
+}
+
+#rulesNumber{
+
+    display: flex;
+    margin-top: 3.7rem;
+    padding-top: 0.3rem;
+}
+
+#title {
+    box-shadow:  10px 10px 20px #d9d9d9,
+                -7px -7px 20px #ffffff;
+    font-size: 6rem;
+    background: #CFE7fA;
+    background: radial-gradient(circle farthest-corner at center center, #CFE7fA 10%, #6393C1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight:800; 
+    letter-spacing: -1px; 
+    line-height: 1; 
+    text-align: center;
+    margin-bottom: 2rem;
+    text-decoration:none;
+	font-family: 'Montserrat', sans-serif;
+    border-radius: 3rem;
+    padding: 2rem;
     
 }
 
-#setNumber{
+.rulesh2  {
 
-    font-size: 5rem;
+    color: #111; 
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem; 
+    font-weight: 300; 
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+
+.rules {
+
+    color: #111; 
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem; 
+    font-weight: 200; 
+    line-height: 30px; 
+    margin: auto;
+    text-align: center;
 
 }
+
+
+#rulesLeft {
+
+    width: 50%;
+    margin-top: 1rem;
+    margin-right: 2rem;
+    border: 4px solid #c2e1f5;
+}
+
+#rulesRight {
+
+    width: 50%;
+    margin-bottom: 1rem;
+}
+
+
+.buttons {
+
+    font-family: 'Roboto', sans-serif;
+	box-shadow: 0px 0px 0px 2px #9fb4f2;
+	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+	background-color:#7892c2;
+	border-radius:1rem;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:1.5rem;
+	padding:0.7rem 2.5rem;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
+}
+
+.buttons:hover {
+    background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+	background-color:#476e9e;
+}
+
+#startNewGame {
+    margin-top: 1.5rem;
+}
+
 
 #inputNumber {
     font-size: 1.5rem; 
     font-weight: bold; 
-    width: 5rem;
-}
-
-#inputSubmit{
-
-    padding: 1rem;
-    margin: 1rem;
     width: 5rem;
 }
 
@@ -98,6 +147,53 @@ h3{
 
 }
 
-#replacement {
-    display: none;
+#messageBox {
+    margin-top: 1rem;
+}
+
+#inputNumber {
+    margin-right: 2rem;
+    
+}
+
+#setNumber {
+    margin-bottom: 1.5rem;
+    color: #111; 
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem; 
+    font-weight: 300; 
+}
+
+.azura {
+
+    animation: myAnim 2s ease-out 0s 1 normal forwards;
+    
+}
+
+@keyframes myAnim {
+	0% {
+		
+		transform: scale(1);
+		transform-origin: center center;
+	}
+
+	10% {
+		animation-timing-function: ease-in;
+		transform: scale(0.91);
+	}
+
+	17% {
+		animation-timing-function: ease-out;
+		transform: scale(0.98);
+	}
+
+	33% {
+		animation-timing-function: ease-in;
+		transform: scale(0.87);
+	}
+
+	45% {
+		animation-timing-function: ease-out;
+		transform: scale(1);
+    }
 }

@@ -1,42 +1,43 @@
 const number = new randomNumber();
-const form = document.getElementById('form');
-const replacement = document.getElementById('replacement')
-const writeNumberChosen = document.getElementById('writeNumberChosen');
-const inputText = document.getElementById('inputTxt');
+const message = document.getElementById('messageBox')
+const userNumber = document.getElementById('inputNumber');
+const submit = document.getElementById('submit');
+const startNewGame = document.getElementById('startNewGame')
+const azura = document.querySelector(".azura");
 
 
+submit.addEventListener('click', function () {
 
-form.addEventListener('submit', function (e) {
+    if (number.play && userNumber.value != 0){
+        
+        number.checkGuess(userNumber.value);
 
+        const styles = `
+        text-transform: uppercase;
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.2rem; 
+        text-decoration: none;
+        text-shadow: 0px 1px 0px #283966;
+    `;
 
-    e.preventDefault(); 
-    const userGuess = parseInt(inputText.value);
-    const result = number.checkGuess(userGuess);
+        message.innerHTML = number.message + '    ';
+        message.style.cssText = styles;
+    }   
 
-    writeNumberChosen.innerHTML += userGuess + '    ';
+});
 
-    if (result === "win") {
-        window.alert("Congrats. You have won!");
-        number.playAgain();
-        writeNumberChosen.innerHTML = "";
-    } else if (result === "lose") {
-        window.alert("You have Lost. The number you had to insert was "+ number.num+ " Try again !!");
-        number.playAgain();
-        writeNumberChosen.innerHTML = "";
-    } else {
-        if (result === "high") {
-            window.alert("The number you are inserted is higher. Try a lower number!!");
-        } else {
-            window.alert("The number you are inserted is lower. Try a higher number!!");
-        }
-    }
+submit.addEventListener('click', () => {
 
-    if (!number.play){
-        form.style.display = 'none';
-        replacement.style.display = 'block'
-    }
-
-    inputText.value = "";
+    submit.classList.add("myAnim");
+    setTimeout(() => {
+        submit.classList.remove("myAnim");
+    }, 500);
     
+});
+
+startNewGame.addEventListener('click', function(){
+
+    number.playAgain();
+    message.innerHTML = "Click on Try to start";
 });
 
