@@ -1,16 +1,19 @@
 const number = new randomNumber();
-const message = document.getElementById('messageBox')
+const message = document.getElementById('message')
 const userNumber = document.getElementById('inputNumber');
 const submit = document.getElementById('submit');
 const startNewGame = document.getElementById('startNewGame')
-const azura = document.querySelector(".azura");
+const attempsLeft = document.getElementById('try');
 
 
 submit.addEventListener('click', function () {
 
-    if (number.play && userNumber.value != 0){
+    attempsLeft.innerHTML = number.currentTry;
+
+    if (number.play){
+
+        number.isPlayAvaliable(userNumber.value);
         
-        number.checkGuess(userNumber.value);
 
         const styles = `
         text-transform: uppercase;
@@ -19,7 +22,7 @@ submit.addEventListener('click', function () {
         text-decoration: none;
         text-shadow: 0px 1px 0px #283966;
     `;
-
+        
         message.innerHTML = number.message + '    ';
         message.style.cssText = styles;
     }   
@@ -28,9 +31,9 @@ submit.addEventListener('click', function () {
 
 submit.addEventListener('click', () => {
 
-    submit.classList.add("azura");
+    submit.classList.add("styleMsg");
     setTimeout(() => {
-        submit.classList.remove("azura");
+        submit.classList.remove("styleMsg");
     }, 250);
     
 });

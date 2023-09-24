@@ -1,44 +1,79 @@
-const WIN = "You have won. Congratulations";
-const LOSE = "You wasted all your tries. Good luck in your next game";
-const HIGH = "Your number is too high.";
-const LOW = "Your number is too low.";
 
 class randomNumber {
 
     constructor(){
         this.num = Math.floor(Math.random() * 51)
-        this.maxTries = 5;
+        this.maxTries = 4;
         this.currentTry = 0;
         this.play = true;
         this.message = "";
     }
 
-    randomizeNumber(){
+    resetNumber(){
         this.num = Math.floor(Math.random() * 51)
     }
 
-    checkGuess(userGuess) {
-        this.currentTry++;
+    triesAvaliable (number){
+        return this.maxTries > number.currentTry;
+    }
 
-    switch (true) {
-        case this.num == userGuess:
-            this.play = false;
-            this.message = WIN;
-            break;
-        case this.currentTry >= this.maxTries:
-            this.play = false;
-            this.message = LOSE;
-            break;
-        case userGuess > this.num:
-            this.message = HIGH;
-            break;
-        default:
-            this.message = LOW;
+    sucess(userGuess){
+        return this.num == userGuess;
+    }
+
+    high(){ 
+        
+        this.message = "Your inserted number is higher.";
+    }
+
+    low(){
+        this.message = "Your inserted number is lower.";
+    }
+
+    win(){
+        this.play = false;
+        this.message = "You have won. Congratulations";
+    }
+
+    gameOver(){
+        this.play = false;
+        this.message = "You wasted all your tries. Good luck in your next game";
+    }
+    cantPlay(){
+        this.message = "Start a new Game to play Again"
+    }
+
+    highOrLow(userGuess){
+        if (userGuess > this.num){
+            this.high();
+        } else {
+            this.low();
         }
     }
 
+    isPlayAvaliable(userGuess){
+        return this.play
+        ? this.playGame(userGuess)
+        : this.cantPlay();
+    }
+
+    playGame(userGuess){
+        return this.triesAvaliable(number)
+        ? this.checkGuess(userGuess)
+        : this.gameOver();
+    }
+
+    checkGuess(userGuess){
+
+        this.currentTry++;
+        return this.sucess(userGuess) 
+        ? this.win(userGuess)
+        : this.highOrLow(userGuess)
+
+    }
+
     playAgain(){
-        this.randomizeNumber();
+        this.resetNumber();
         this.currentTry = 0;
         this.play = true;
     }

@@ -149,12 +149,23 @@ body {
 
 #messageBox {
     margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
 
+}
+
+#message {
+    width: 75%;
+    text-align: end;
+}
+
+#tryLeft {
+    display: none;
+    width: 25%;
 }
 
 #inputNumber {
     margin-right: 2rem;
-    
 }
 
 #setNumber {
@@ -165,7 +176,7 @@ body {
     font-weight: 300; 
 }
 
-.azura {
+.styleMsg {
 
     animation: myAnim 2s ease-out 0s 1 normal forwards;
     
