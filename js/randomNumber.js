@@ -1,7 +1,9 @@
+import { high, low } from "../modules/libraryFunctions.js";
 
-class randomNumber {
+var GAME = GAME || {};
+GAME.game = class {
 
-    constructor(){
+    constructor() {
         this.num = Math.floor(Math.random() * 51)
         this.maxTries = 4;
         this.currentTry = 0;
@@ -9,61 +11,52 @@ class randomNumber {
         this.message = "";
     }
 
-    resetNumber(){
+    resetNumber() {
         this.num = Math.floor(Math.random() * 51)
     }
 
-    triesAvaliable (number){
-        return this.maxTries > number.currentTry;
+    triesAvaliable() {
+        return this.maxTries > this.currentTry;
     }
 
-    sucess(userGuess){
+    sucess(userGuess) {
         return this.num == userGuess;
     }
 
-    high(){ 
-        
-        this.message = "Your inserted number is higher.";
-    }
-
-    low(){
-        this.message = "Your inserted number is lower.";
-    }
-
-    win(){
+    win() {
         this.play = false;
         this.message = "You have won. Congratulations";
     }
 
-    gameOver(){
+    gameOver() {
         this.play = false;
         this.message = "You wasted all your tries. Good luck in your next game";
     }
-    cantPlay(){
+    cantPlay() {
         this.message = "Start a new Game to play Again"
     }
 
-    highOrLow(userGuess){
+    highOrLow(userGuess) {
         if (userGuess > this.num){
-            this.high();
+            this.message=high()
         } else {
-            this.low();
+            this.message=low();
         }
     }
 
-    isPlayAvaliable(userGuess){
+    isPlayAvaliable(userGuess) {
         return this.play
         ? this.playGame(userGuess)
         : this.cantPlay();
     }
 
-    playGame(userGuess){
-        return this.triesAvaliable(number)
+    playGame(userGuess) {
+        return this.triesAvaliable()
         ? this.checkGuess(userGuess)
         : this.gameOver();
     }
 
-    checkGuess(userGuess){
+    checkGuess(userGuess) {
 
         this.currentTry++;
         return this.sucess(userGuess) 
@@ -72,7 +65,7 @@ class randomNumber {
 
     }
 
-    playAgain(){
+    playAgain() {
         this.resetNumber();
         this.currentTry = 0;
         this.play = true;
@@ -80,3 +73,5 @@ class randomNumber {
 
 
 }
+
+export{GAME};

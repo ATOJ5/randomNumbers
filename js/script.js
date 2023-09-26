@@ -1,10 +1,11 @@
-const number = new randomNumber();
+import { GAME } from "./randomNumber.js";
+
+const number = new GAME.game();
 const message = document.getElementById('message')
 const userNumber = document.getElementById('inputNumber');
 const submit = document.getElementById('submit');
 const startNewGame = document.getElementById('startNewGame')
 const attempsLeft = document.getElementById('try');
-
 
 submit.addEventListener('click', function () {
 
